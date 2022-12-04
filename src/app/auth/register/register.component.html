@@ -1,0 +1,64 @@
+<div class="ui middle aligned center aligned grid" style="margin: 0 auto;">
+    <div class="column">
+      <h2 class="ui image header">
+        <div class="content">
+            Registration Form
+        </div>
+      </h2>
+      <form [formGroup]="form"   class="ui large form" (ngSubmit)="registerHandler()">
+        <div class="ui stacked secondary  segment">
+            <div class="field">
+               <!-- Error Message username-->
+               
+               <ng-container *ngIf="form.get('username')?.touched">
+                <div *ngIf="form.get('username')?.errors?.['required']">Username is required!</div>
+                <div *ngIf="form.get('username')?.errors?.['minlength']">Username should be longer than 5 chars</div>
+              </ng-container>
+              <div class="ui left icon input">
+                  <i class="user icon"></i>
+                  <input type="text"  formControlName="username" placeholder="Username">
+              </div>
+              
+            </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="envelope icon"></i>
+              <input type="text" formControlName="email" placeholder="E-mail address">
+            </div>
+          </div>
+          <!-- password -->
+          <ng-container formGroupName="pass">
+            <div class="field">
+
+              <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
+                <div *ngIf="form.get('pass')?.get('password')?.errors?.['required']">Password is required!</div>
+                <div *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']">Password must be at least 5 characters!</div>
+              </ng-container>
+
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" formControlName="password" placeholder="Password">
+              </div>
+            </div>
+            <div class="field">
+              <div *ngIf="form.get('pass')?.errors?.['passwordValidator'] && form.get('pass')?.get('rePassword')?.touched">Repeat Password does not match password!</div>
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password"  formControlName="rePassword" placeholder="Repeat Password">
+              </div>
+            </div>
+          </ng-container>
+          {{form.invalid}}
+            <button [disabled]="form.invalid" class="ui fluid large teal submit button">Register</button> 
+          
+        </div>
+        
+        
+  
+      </form>
+  
+      <div class="ui message">
+        New to us? <a routerLink="/auth/login">Login</a>
+      </div>
+    </div>
+  </div>

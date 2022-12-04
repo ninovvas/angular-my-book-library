@@ -1,0 +1,24 @@
+
+<header class="header">
+
+<div class="header">
+    <nav class="navbar">
+       <a routerLink="/"><i class="home icon"></i></a>
+        
+        <!--Only for logged user-->
+        <ng-template #loggedUserTemplate><
+        <a href="#">My Profile ({{user?.username}})'</a>
+        <a href="#">Add new Book</a>
+        <a routerLink="/auth/logout">Logout</a>
+        </ng-template>
+        <!--Only for guest-->
+        <ng-template #guestTemplate>
+        <a routerLink="/auth/login">Login</a>
+        <a routerLink="/auth/register">Register</a>
+        </ng-template>
+
+        <ng-container *ngTemplateOutlet="isLoggedIn ? loggedUserTemplate : guestTemplate"></ng-container>
+    </nav>
+</div>
+
+</header>
