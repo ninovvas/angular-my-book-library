@@ -8,7 +8,8 @@
         <!--Only for logged user-->
         <ng-template #loggedUserTemplate><
         <a href="#">My Profile ({{user?.username}})'</a>
-        <a href="#">Add new Book</a>
+        <a routerLink="/book/create">Add new Book</a>
+        <a routerLink="/book/catalog">My Books</a>
         <a routerLink="/auth/logout">Logout</a>
         </ng-template>
         <!--Only for guest-->

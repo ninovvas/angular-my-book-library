@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { minlengthPassword } from 'src/app/shared/constants';
@@ -11,7 +11,13 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  minlengthPassword = minlengthPassword
+  minlengthPassword = minlengthPassword;
+
+  @ViewChild(
+    // 'form',
+    NgForm,
+    { static: true }
+  ) form!: ElementRef<HTMLInputElement>;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
@@ -28,3 +34,4 @@ export class LoginComponent {
   }
 
 }
+

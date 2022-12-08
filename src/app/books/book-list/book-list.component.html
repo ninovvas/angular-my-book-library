@@ -1,0 +1,18 @@
+<div class="ui middle aligned selection divided list">
+  
+    <ng-container *ngIf="books; else loading">
+      <app-book-list-item class="item"
+        *ngFor="let b of books"
+        [book]="b"
+        [routerLink]="b.isbn"></app-book-list-item >
+      
+      <p *ngIf="!books.length">No books have been entered yet!</p>
+    </ng-container>
+  
+    <ng-template #loading>
+      <div class="ui active dimmer">
+        <div class="ui large text loader">Looding...</div>
+      </div>
+    </ng-template>
+  
+  </div>
