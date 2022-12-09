@@ -1,10 +1,11 @@
-<div class="ui middle aligned selection divided list">
-  
+<div class="ui middle aligned selection divided list fixed-width">
+    <div class="ui huge header">Huge Header</div>
+   
     <ng-container *ngIf="books; else loading">
       <app-book-list-item class="item"
         *ngFor="let b of books"
         [book]="b"
-        [routerLink]="b.isbn"></app-book-list-item >
+        [routerLink]="b._id"></app-book-list-item >
       
       <p *ngIf="!books.length">No books have been entered yet!</p>
     </ng-container>
@@ -14,5 +15,5 @@
         <div class="ui large text loader">Looding...</div>
       </div>
     </ng-template>
-  
+    
   </div>

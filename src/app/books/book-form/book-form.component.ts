@@ -13,7 +13,7 @@ export class BookFormComponent implements OnInit {
 
   bookForm: FormGroup|any;
 
-  @Input() book!: Book;
+  @Input() book?: Book;
   @Input() editing = false;
   @Output() submitBook = new EventEmitter<Book>();
 
@@ -81,7 +81,7 @@ export class BookFormComponent implements OnInit {
     const authors = formValue.authors.filter(author  => author);
     const thumbnails = formValue.thumbnails.filter(thumbnail => thumbnail.url);
 
-    const isbn = this.editing ? this.book.isbn : formValue.isbn;
+    const isbn = this.editing ? this.book?.isbn : formValue.isbn;
 
     const newBook: Book = {
       ...formValue,

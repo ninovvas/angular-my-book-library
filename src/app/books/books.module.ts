@@ -9,6 +9,8 @@ import { BookRoutingModule } from './book.routing.module';
 import { BookListItemComponent } from './book-list-item/book-list-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { BookListComponent } from './book-list/book-list.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 
 
@@ -18,7 +20,9 @@ import { BookListComponent } from './book-list/book-list.component';
     CreateBookComponent,
     FormMessagesComponent,
     BookListItemComponent,
-    BookListComponent
+    BookListComponent,
+    BookDetailsComponent,
+    EditBookComponent
   ],
   imports: [
     CommonModule,

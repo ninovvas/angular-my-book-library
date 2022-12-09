@@ -2,6 +2,7 @@ import { Thumbnail } from "./thumbnail";
 import { IUser } from "./user";
 
 export interface Book {
+    _id: string;
     isbn: string;
     title: string;
     authors: string[];

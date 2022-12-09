@@ -15,10 +15,9 @@ import { BooksModule } from './books/books.module';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthenticateComponent
+    AuthenticateComponent,
   ],
   imports: [
-    AuthRoutingModule,
     AppRoutingModule,
     AuthModule,
     CoreModule,

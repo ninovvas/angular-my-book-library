@@ -39,12 +39,33 @@ const apiURL = environment.apiURL;
 
   
     
-      create_book(book: Book){
-        console.log(book);
-        return this.httpClient.post<Book>('/api/books/', book).pipe(
-            catchError(this.errorHandler)
-        )
-      }
+    create_book(book: Book){
+      console.log(book);
+      return this.httpClient.post<Book>('/api/books/', book).pipe(
+          catchError(this.errorHandler)
+      )
+    }
+
+    // getTheme(id: string) {
+    //   return this.http.get<ITheme>('/api/themes/' + id);
+    // }
+
+    getDetailsBook(id: string| null){
+      return this.httpClient.get<Book>('/api/books/catalog/' + id).pipe(
+        catchError(this.errorHandler)
+      )
+    }
+  
+
+    // getSingle(isbn: string): Observable<Book> {
+    //   return this.http.get<BookRaw>(
+    //     `${this.api}/book/${isbn}`
+    //   ).pipe(
+    //     retry(3),
+    //     map(b => BookFactory.fromRaw(b)),
+    //     catchError(this.errorHandler)
+    //   );
+    // }
 
     //   createTheme(name: string, text: string) {
     //     return this.http.post<ITheme>('/api/themes/', { themeName: name, postText: text });

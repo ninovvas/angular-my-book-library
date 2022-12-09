@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { RouterModule } from '@angular/router';
 import { IsbnPipe } from './isbn.pipe';
+import { DelayDirective } from './directive/delay.directive';
 
 
 
 @NgModule({
   declarations: [
     LoaderComponent,
-    IsbnPipe
+    IsbnPipe,
+    DelayDirective
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { IsbnPipe } from './isbn.pipe';
   ],
   exports: [
     LoaderComponent,
-    IsbnPipe
+    IsbnPipe,
+    DelayDirective
   ]
 })
 export class SharedModule { }

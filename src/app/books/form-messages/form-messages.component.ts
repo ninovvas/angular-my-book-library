@@ -10,8 +10,8 @@ import { Book } from 'src/app/shared/interfaces/book';
 export class FormMessagesComponent implements OnInit {
 
   @Input() control: AbstractControl | undefined;
-  //@Input() controlName: keyof Book = 'title';
-  @Input() controlName: string = 'title';
+  @Input() controlName: keyof Book = 'subtitle';
+  //@Input() controlName: string = 'title';
  
   private allMessages = {
     title: {
@@ -45,7 +45,7 @@ export class FormMessagesComponent implements OnInit {
   }
 
   errorsForControl(): string[] {
-   //const message = this.allMessages[this.controlName];
+   const message = this.allMessages[this.controlName];
    //console.log(message);
   //const message = this.allMessages[this.controlName as keyof Book];
    
