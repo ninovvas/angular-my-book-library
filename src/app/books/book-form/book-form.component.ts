@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Book } from 'src/app/shared/interfaces/book';
 import { Thumbnail } from 'src/app/shared/interfaces/thumbnail';
+import { BookExistsValidator } from 'src/app/shared/validators/book-exist-validator';
 import { BookValidators } from 'src/app/shared/validators/book.validators';
 
 @Component({
@@ -9,7 +10,7 @@ import { BookValidators } from 'src/app/shared/validators/book.validators';
   templateUrl: './book-form.component.html',
   styleUrls: ['./book-form.component.scss']
 })
-export class BookFormComponent implements OnInit {
+export class BookFormComponent implements OnInit, OnChanges {
 
   bookForm: FormGroup|any;
 
@@ -26,7 +27,28 @@ export class BookFormComponent implements OnInit {
   }
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private bookExistsValidator: BookExistsValidator) { }
+  
+  ngOnChanges(): void {
+    this.initForm();
+    this.setFormValues(this.book as Book);
+  }
+
+  private setFormValues(book: Book) {
+    this.bookForm.patchValue(book);
+    console.log('book', book);
+
+    this.bookForm.setControl(
+      'authors',
+      this.buildAuthorsArray(book.authors)
+    );
+
+    this.bookForm.setControl(
+      'thumbnails',
+      this.buildThumbnailsArray(book.thumbnails as Thumbnail[])
+    );
+
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -81,10 +103,12 @@ export class BookFormComponent implements OnInit {
     const authors = formValue.authors.filter(author  => author);
     const thumbnails = formValue.thumbnails.filter(thumbnail => thumbnail.url);
 
-    const isbn = this.editing ? this.book?.isbn : formValue.isbn;
+    const _id = this.editing ? this.book?._id : formValue._id;
+    const isbn = formValue.isbn;
 
     const newBook: Book = {
       ...formValue,
+      _id,
       isbn,
       authors,
       thumbnails

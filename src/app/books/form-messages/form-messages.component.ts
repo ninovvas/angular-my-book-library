@@ -10,7 +10,7 @@ import { Book } from 'src/app/shared/interfaces/book';
 export class FormMessagesComponent implements OnInit {
 
   @Input() control: AbstractControl | undefined;
-  @Input() controlName: keyof Book = 'subtitle';
+  @Input() controlName: keyof Book = 'title';
   //@Input() controlName: string = 'title';
  
   private allMessages = {
@@ -45,13 +45,13 @@ export class FormMessagesComponent implements OnInit {
   }
 
   errorsForControl(): string[] {
-   const message = this.allMessages[this.controlName];
+   const messages = this.allMessages[this.controlName];
    //console.log(message);
   //const message = this.allMessages[this.controlName as keyof Book];
    
-  if (!this.control || !this.control.errors || !this.control.dirty) { return []; }
+  if (!this.control || !messages || !this.control.errors || !this.control.dirty) { return []; }
   console.log(this.control.errors);
-  return Object.keys(this.control.errors).map(err => err);
+  return Object.keys(this.control.errors).map(err => messages[err]);
   }
 
 }

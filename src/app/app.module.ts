@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { BooksModule } from './books/books.module';
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
+import { SearchModule } from './search/search.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { BooksModule } from './books/books.module';
     BrowserModule,
     SharedModule,
     BooksModule,
+    DateValueAccessorModule,
+    SearchModule,
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

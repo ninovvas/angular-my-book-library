@@ -11,6 +11,7 @@
         <a routerLink="/book/create">Add new Book</a>
         <a routerLink="/book/catalog">My Books</a>
         <a routerLink="/auth/logout">Logout</a>
+        <app-search-content></app-search-content>
         </ng-template>
         <!--Only for guest-->
         <ng-template #guestTemplate>
@@ -19,7 +20,10 @@
         </ng-template>
 
         <ng-container *ngTemplateOutlet="isLoggedIn ? loggedUserTemplate : guestTemplate"></ng-container>
+        
+        
     </nav>
+    
 </div>
 
 </header>

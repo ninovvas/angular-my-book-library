@@ -26,15 +26,12 @@ export class BookDetailsComponent implements OnInit {
     return new Array(num);
   }
 
-  removeBook(){
-
+  
+  removeBook() {
+    if (confirm('Are you sure you really want to delete the book?')) {
+      this.bookService.remove(this.book?._id as string)
+        .subscribe(() => this.router.navigate(['/book/catalog'] ));
+    }
   }
-
-  // removeBook() {
-  //   if (confirm('Are you sure you really want to delete the book?')) {
-  //     this.bookService.remove(this.book.isbn)
-  //       .subscribe(res => this.router.navigate(['../'], { relativeTo: this.route }));
-  //   }
-  // }
 
 }

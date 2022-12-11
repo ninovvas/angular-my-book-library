@@ -1,1 +1,8 @@
-<p>edit-book works!</p>
+<h1>Edit Book</h1>
+
+<app-book-form
+  *ngIf="book"
+  (submitBook)="editBook($event)"
+  [book]="book"
+  [editing]="true"
+  ></app-book-form>

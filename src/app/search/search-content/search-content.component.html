@@ -1,0 +1,37 @@
+<!--
+<div class="ui search" [class.loading]="isLoading">
+    <div class="ui icon input">
+      <input type="text" class="prompt"
+        (keyup)="getValue($event)" name="search">
+      <i class="search icon"></i>
+    </div>
+    
+    <div class="results transition visible"
+      *ngIf="foundBooks.length">
+      <a class="result"
+        *ngFor="let book of foundBooks"
+        [routerLink]="['book','catalog', book._id]" >
+        {{ book.title }}
+        <p class="description">{{book.subtitle}}</p>
+      </a>
+    </div>
+   
+</div>
+-->
+
+<input type="search"
+  autocomplete="off"
+  aria-label="Search"
+  [class.loading]="isLoading"
+  #searchInput
+  (input)="input$.next(searchInput.value)">
+
+<ul class="search-results" *ngIf="results$ | async as results">
+  <li *ngFor="let book of results">
+    <a [routerLink]="['book','catalog', book._id]">
+      {{ book.title }}
+      <p role="doc-subtitle">{{ book.subtitle }}</p>
+    </a>
+  </li>
+  <li *ngIf="!results.length">No results</li>
+</ul>
