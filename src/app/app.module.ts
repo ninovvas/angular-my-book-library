@@ -20,15 +20,16 @@ import { SearchModule } from './search/search.module';
     AuthenticateComponent,
   ],
   imports: [
-    AppRoutingModule,
+    BooksModule,
     AuthModule,
     CoreModule,
     HttpClientModule,
     BrowserModule,
     SharedModule,
-    BooksModule,
+    
     DateValueAccessorModule,
     SearchModule,
+    AppRoutingModule,
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
