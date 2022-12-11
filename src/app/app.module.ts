@@ -26,7 +26,6 @@ import { SearchModule } from './search/search.module';
     HttpClientModule,
     BrowserModule,
     SharedModule,
-    
     DateValueAccessorModule,
     SearchModule,
     AppRoutingModule,

@@ -4,24 +4,28 @@
 <div class="header">
     <nav class="navbar">
        <a routerLink="/"><i class="home icon"></i></a>
+       
         
         <!--Only for logged user-->
-        <ng-template #loggedUserTemplate><
+        <ng-template #loggedUserTemplate>
         <a href="#">My Profile ({{user?.username}})'</a>
         <a routerLink="/book/create">Add new Book</a>
         <a routerLink="/book/catalog">My Books</a>
         <a routerLink="/auth/logout">Logout</a>
         <app-search-content></app-search-content>
+        
         </ng-template>
         <!--Only for guest-->
         <ng-template #guestTemplate>
         <a routerLink="/auth/login">Login</a>
         <a routerLink="/auth/register">Register</a>
+        
         </ng-template>
+        
 
         <ng-container *ngTemplateOutlet="isLoggedIn ? loggedUserTemplate : guestTemplate"></ng-container>
         
-        
+        <a routerLink="/book/search/api">Search Online Books</a>
     </nav>
     
 </div>

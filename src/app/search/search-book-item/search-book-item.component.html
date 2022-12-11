@@ -1,0 +1,37 @@
+<!-- <img class="ui tiny image"
+*ngIf="thumbnail" [src]="thumbnail" bmZoom>
+       
+<div class="content">
+<div class="header">{{book.volumeInfo.title }}</div>
+<div *ngIf="book.volumeInfo.subtitle" class="description">{{ book.volumeInfo.subtitle }}</div>
+    <div class="metadata"> Authors:
+        <span>
+        {{ book.volumeInfo.authors }}
+        </span>
+        <br>
+    </div>
+</div>
+-->
+
+<div class="ui item">
+    <div class=" ui image small">
+    <img *ngIf="thumbnail" [src]="thumbnail" bmZoom>
+    </div>
+    <div class="content">
+    <a class="header">{{book.volumeInfo.title }}</a>
+    <div class="meta">
+        <span class="cinema">{{ book.volumeInfo.subtitle }}</span>
+    </div>
+    <div class="description">
+        <p>{{ book.volumeInfo.description }}</p>
+    </div>
+    <div class="extra">
+            <div class="ui right floated primary button" (click)="printData(book)">
+            Add to my Library
+            <i class="right chevron icon"></i>
+        </div>
+    </div>
+    </div> 
+</div>
+
+

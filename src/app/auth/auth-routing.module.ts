@@ -8,7 +8,7 @@ const routes: Routes = [
 
     {
         path: 'auth',
-        //canActivate: [AuthActivate],
+        canActivate: [AuthActivate],
         children: [
             {
                 path: 'login',

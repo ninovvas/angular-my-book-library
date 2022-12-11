@@ -1,4 +1,5 @@
 import { Routes, RouterModule } from "@angular/router";
+import { SearchApiComponent } from "../search/search-api/search-api.component";
 import { AuthActivate } from "../shared/gards/auth.activate";
 import { BookDetailsComponent } from "./book-details/book-details.component";
 import { BookListComponent } from "./book-list/book-list.component";
@@ -9,7 +10,7 @@ const routes: Routes = [
 
     {
         path: 'book',
-        //canActivate: [AuthActivate],
+        canActivate: [AuthActivate],
         children: [
             {
                 path: 'create',
@@ -26,6 +27,15 @@ const routes: Routes = [
                 data : {
                     title: 'Catalog Book',
                     loginRequired: true
+                }
+
+            },
+            {
+                path: 'search/api',
+                component: SearchApiComponent,
+                data : {
+                    title: 'Search Book via API',
+                    loginRequired: false
                 }
 
             },
@@ -48,6 +58,8 @@ const routes: Routes = [
                 }
 
             },
+
+           
            
             
         ]
