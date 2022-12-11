@@ -1,4 +1,5 @@
 import { Routes, RouterModule } from "@angular/router";
+import { AuthActivate } from "../shared/gards/auth.activate";
 import { BookDetailsComponent } from "./book-details/book-details.component";
 import { BookListComponent } from "./book-list/book-list.component";
 import { CreateBookComponent } from "./create-book/create-book.component";
@@ -8,6 +9,7 @@ const routes: Routes = [
 
     {
         path: 'book',
+        //canActivate: [AuthActivate],
         children: [
             {
                 path: 'create',

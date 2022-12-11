@@ -22,6 +22,7 @@ export class BookListComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
+        //this.books = value;
       }
     });
   }

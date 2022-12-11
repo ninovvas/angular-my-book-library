@@ -56,8 +56,6 @@ export class SearchContentComponent {
     this.router.navigate(['book', 'catalog']).then(() =>
     this.router.navigate(['book', 'catalog', bookId])
     );
-
-    
     
   }
 

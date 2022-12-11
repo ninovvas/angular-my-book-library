@@ -1,6 +1,5 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BrowserTransferStateModule } from "@angular/platform-browser";
 import { catchError, map, Observable, retry, throwError } from "rxjs";
 import { environment } from "src/environments/environment";
 import { BookFactory } from "../shared/books/book-factory";
@@ -21,18 +20,7 @@ const apiURL = environment.apiURL;
         return throwError(error);
       }
 
-        
-    // getAll(): Observable<Book[]> {
-    //   return this.http.get<BookRaw[]>(`${this.api}/books`)
-    //     .pipe(
-    //       retry(3),
-    //       map(booksRaw =>
-    //         booksRaw.map(b => BookFactory.fromRaw(b)),
-    //       ),
-    //       catchError(this.errorHandler)
-    //     );
-    // }
-
+  
     getAll() {
       return this.httpClient.get<Book[]>(`/api/books`).pipe(
         catchError(this.errorHandler)

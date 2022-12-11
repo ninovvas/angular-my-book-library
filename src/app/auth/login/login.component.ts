@@ -21,7 +21,7 @@ export class LoginComponent {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
-  loginHandler(form: NgForm){
+  loginHandler(form: NgForm): void{
     if (form.invalid) { return;}
     const {email, password} = form.value;
     this.authService.login(email, password)
