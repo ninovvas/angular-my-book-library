@@ -1,37 +1,79 @@
-<!-- <img class="ui tiny image"
-*ngIf="thumbnail" [src]="thumbnail" bmZoom>
-       
+<!-- <img class="ui tiny " *ngIf="thumbnail" [src]="thumbnail" bmZoom>
 <div class="content">
-<div class="header">{{book.volumeInfo.title }}</div>
-<div *ngIf="book.volumeInfo.subtitle" class="description">{{ book.volumeInfo.subtitle }}</div>
-    <div class="metadata"> Authors:
-        <span>
-        {{ book.volumeInfo.authors }}
-        </span>
-        <br>
-    </div>
-</div>
--->
-
-<div class="ui item">
-    <div class=" ui image small">
-    <img *ngIf="thumbnail" [src]="thumbnail" bmZoom>
-    </div>
-    <div class="content">
-    <a class="header">{{book.volumeInfo.title }}</a>
-    <div class="meta">
-        <span class="cinema">{{ book.volumeInfo.subtitle }}</span>
-    </div>
-    <div class="description">
-        <p>{{ book.volumeInfo.description }}</p>
-    </div>
-    <div class="extra">
+    <div class="header">{{book.volumeInfo.title }}</div>
+    <div *ngIf="book.volumeInfo.subtitle" class="description">{{ book.volumeInfo.subtitle }}</div>
+        <div class="metadata"> Authors: {{ book.volumeInfo.authors }}</div>
+        <div class="extra" *ngIf="isLoggedIn">
             <div class="ui right floated primary button" (click)="printData(book)">
+                Add to my Library
+                <i class="right chevron icon"></i>
+            </div>
+        </div>
+</div> -->
+
+<!-- <div class="item" *ngIf="thumbnail">
+    <div class="image small">
+    <img class="tiny" *ngIf="thumbnail" [src]="thumbnail" bmZoom/>
+    </div>
+    <div class="content right">
+        <div class="header"><b>{{book.volumeInfo.title}}</b></div>
+        <div class="meta">
+            <span class="cinema" *ngIf="book.volumeInfo.subtitle"><i>{{book.volumeInfo.subtitle}}</i></span>
+        </div>
+        <div class="extra">
+            <div  *ngIf="isLoggedIn" class="ui right floated primary button" (click)="printData(book)">
             Add to my Library
             <i class="right chevron icon"></i>
         </div>
     </div>
+        <div class="description">
+            <p>{{ book.volumeInfo.description }}</p>
+        </div>
+        
+        
+       
     </div> 
-</div>
+</div> -->
+<ng-template #loggedUser>
+    <mat-card *ngIf="thumbnail" style="width: 100%;">
+        <mat-card-title-group>
+        <img mat-card-sm-image *ngIf="thumbnail" [src]="thumbnail"  />
+        <mat-card-title>{{ book.volumeInfo.title }}</mat-card-title>
+        <mat-card-subtitle *ngIf="book.volumeInfo.subtitle">
+            <i>{{ book.volumeInfo.subtitle }}</i> <br>
+            <b>Author:</b> {{ book.volumeInfo.authors }}
+        </mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-content>
+        <p *ngIf="book.volumeInfo.description">
+            {{book.volumeInfo.description}}
+        </p>
+        </mat-card-content>
+        <button *ngIf="isLoggedIn" (click)="addBook(book)" mat-raised-button color="primary"> Add to my Library</button>
+    </mat-card>
+</ng-template>
+
+<ng-template #NologgedUser>
+<a [attr.href]="book.volumeInfo.infoLink" style="width: 100%;" target="_blank">
+<mat-card *ngIf="thumbnail" style="width: 100%;">
+    <mat-card-title-group>
+    <img mat-card-sm-image *ngIf="thumbnail" [src]="thumbnail"  />
+    <mat-card-title>{{ book.volumeInfo.title }}</mat-card-title>
+    <mat-card-subtitle *ngIf="book.volumeInfo.subtitle">
+        <i>{{ book.volumeInfo.subtitle }}</i> <br>
+        <b>Author:</b> {{ book.volumeInfo.authors }}
+    </mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+    <p *ngIf="book.volumeInfo.description">
+        {{book.volumeInfo.description}}
+    </p>
+    </mat-card-content>
+    <button *ngIf="isLoggedIn" (click)="addBook(book)" mat-raised-button color="primary"> Add to my Library</button>
+</mat-card>
+</a>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="isLoggedIn ? loggedUser : NologgedUser"></ng-container>
 
 

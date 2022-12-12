@@ -16,6 +16,7 @@ export interface GoogleBooksApiInterface {
       description: string;
       averageRating: number;
       ratingsCount: number;
+      infoLink: string,
       imageLinks: {
         thumbnail: string;
         smallThumbnail: string;

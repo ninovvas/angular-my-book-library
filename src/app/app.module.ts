@@ -13,6 +13,8 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { BooksModule } from './books/books.module';
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { SearchModule } from './search/search.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { SearchModule } from './search/search.module';
     DateValueAccessorModule,
     SearchModule,
     AppRoutingModule,
+    AuthRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

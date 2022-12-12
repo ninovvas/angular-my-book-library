@@ -12,7 +12,7 @@ const apiURL = environment.apiURL;
 export class AppInterceptor implements HttpInterceptor{
 
     constructor(
-      
+        //@Inject(API_ERROR) private apiError: BehaviorSubject<Error | null>,
         private router: Router,
         private authService: AuthService
     ){}

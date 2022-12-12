@@ -4,6 +4,7 @@ import { SearchContentComponent } from './search-content/search-content.componen
 import { RouterModule } from '@angular/router';
 import { SearchApiComponent } from './search-api/search-api.component';
 import { SearchBookItemComponent } from './search-book-item/search-book-item.component';
+import { MaterialModule } from '../material.module';
 
 
 
@@ -15,11 +16,11 @@ import { SearchBookItemComponent } from './search-book-item/search-book-item.com
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
-    SearchContentComponent,
-    SearchApiComponent
+    SearchContentComponent
   ]
 })
 export class SearchModule { }

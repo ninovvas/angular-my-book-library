@@ -13,6 +13,7 @@ export class SearchApiService {
 
   constructor(private httpClient: HttpClient) { }
 
+  //earchBook(bookTitle: string): Observable<BookSearch[]> 
   searchBook(bookTitle: string): Observable<BookSearch[]> {
     return this.httpClient.get<GoogleBooksApiInterface>(`${this.GOOGLE_API_URL}?q=${bookTitle}`).pipe(
       map((data: GoogleBooksApiInterface) => data.items)

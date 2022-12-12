@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { BookSearch } from 'src/app/shared/interfaces/api-book';
 import { SearchApiService } from '../search-api.service';
 
@@ -11,8 +11,9 @@ import { SearchApiService } from '../search-api.service';
 export class SearchApiComponent implements OnInit {
 
 
-  books!: Observable<BookSearch[]>;
+  books$?: Observable<BookSearch[]>;
   isLoading = false;
+  followNum?: Number;
 
   constructor(private bookApiService: SearchApiService) { }
 
@@ -22,9 +23,8 @@ export class SearchApiComponent implements OnInit {
   queryHandler(event: Event) {
     const bookTitle = (event.target as HTMLInputElement)?.value;
     if (bookTitle.length > 4) {
-      this.books = this.bookApiService.searchBook(bookTitle);
+      this.books$ = this.bookApiService.searchBook(bookTitle);
       this.isLoading = true;
-      console.log('books', this.books);
     }
 
   }
