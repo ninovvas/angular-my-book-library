@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Book } from 'src/app/shared/interfaces/book';
 import { Thumbnail } from 'src/app/shared/interfaces/thumbnail';
 import { BookExistsValidator } from 'src/app/shared/validators/book-exist-validator';
@@ -60,8 +60,8 @@ export class BookFormComponent implements OnInit, OnChanges {
     this.bookForm = this.fb.group({
       title: ['', Validators.required],
       subtitle: [''],
-      isbn: [
-        { value: '', disabled: this.editing },
+      isbn: ['',
+        //{ value: '', disabled: this.editing },
         [
           Validators.required,
           BookValidators.isbnFormat
@@ -73,7 +73,10 @@ export class BookFormComponent implements OnInit, OnChanges {
       thumbnails: this.buildThumbnailsArray([
         { title: '', url: ''}
       ]),
-      published: []
+      rating: ['', [Validators.min(1), Validators.max(5)]],
+      published: [],
+        //#Validators.max(5)
+      read: []
     });
   }
 
@@ -105,13 +108,25 @@ export class BookFormComponent implements OnInit, OnChanges {
 
     const _id = this.editing ? this.book?._id : formValue._id;
     const isbn = formValue.isbn;
+    let rating = formValue.rating;
+    if (rating == undefined) {
+      rating = 1;
+    }
+    let read = formValue.read
+    if (read == null) {
+      read = false;
+    }
+    
+    //console.log('read', formValue.read);
 
     const newBook: Book = {
       ...formValue,
       _id,
       isbn,
       authors,
-      thumbnails
+      thumbnails,
+      rating,
+      read
     };
 
     this.submitBook.emit(newBook);

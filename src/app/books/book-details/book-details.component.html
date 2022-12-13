@@ -26,9 +26,17 @@
             *bookDelay="500 + i * 200"></i>
         </ng-container>
       </div>
+      <div class="five wide column">
+          <h4 *ngIf="book.read">Read: <span *ngIf="book.read"><i class="thumbs up big icon"></i></span> <span *ngIf="!book.read"><i class="thumbs down icon"></i></span></h4>
+      </div>
     </div>
+
+    
+
     <h4>Description</h4>
     <p>{{ book.description }}</p>
+
+
     <div class="ui small images">
       <img *ngFor="let thumbnail of book.thumbnails"
         [src]="thumbnail.url">

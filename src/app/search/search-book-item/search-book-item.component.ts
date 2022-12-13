@@ -52,6 +52,9 @@ export class SearchBookItemComponent implements OnInit {
       subtitle: book.volumeInfo?.subtitle,
       thumbnails: [{title: book.volumeInfo.title, 'url': book.volumeInfo?.imageLinks?.smallThumbnail}],
       description: book.volumeInfo?.description,
+      rating: 1,
+      read: false,
+
 
     }
     this.bookService.create_book(this.bookToAdd).subscribe(() => {

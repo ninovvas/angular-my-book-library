@@ -2,7 +2,7 @@
   
   <div class="field">
     <div class="ui left icon input">
-      <i class="user icon"></i>
+      <i class="heading icon"></i>
     <input formControlName="title" placeholder="Title">
     </div>
     <app-form-messages
@@ -11,61 +11,125 @@
     </app-form-messages>
   </div>
 
-  <label>Subtitle</label>
-  <input formControlName="subtitle">
-
-  <label>ISBN</label>
-  <input formControlName="isbn">
-  <app-form-messages
-    [control]="bookForm.get('isbn')"
-    controlName="isbn">
-  </app-form-messages>
-
-  <label>Published Date</label>
-  <input type="date"
-    useValueAsLocalDate
-    formControlName="published">
-  <app-form-messages
-    [control]="bookForm.get('published')"
-    controlName="published">
-  </app-form-messages>
-
-  <label>Authors</label>
-  <button type="button" class="ui mini button"
-    (click)="addAuthorControl()">
-    + Autor
-  </button>
-  <div class="fields" formArrayName="authors">
-    <div class="sixteen wide field"
-      *ngFor="let c of authors.controls; index as i">
-      <input placeholder="Autor"
-        [formControlName]="i">
+  <!-- <label>Subtitle</label> -->
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="pencil alternate icon"></i>
+      <input formControlName="subtitle"  placeholder="Subtitle">
     </div>
   </div>
-  <app-form-messages
-    [control]="bookForm.get('authors')"
-    controlName="authors">
-  </app-form-messages>
 
-  <label>Description</label>
-  <textarea formControlName="description"></textarea>
+  <!-- <label>ISBN</label> -->
+  <div class="field">
+    <div class="ui left icon input">
+      <i class="book icon"></i>
+      <input formControlName="isbn" placeholder="ISBN">
+    <app-form-messages
+      [control]="bookForm.get('isbn')"
+      controlName="isbn">
+    </app-form-messages>
+  </div>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <div class="ui checkbox">
+        <input type="checkbox" formControlName="read">
+        <label>Are you already read the Book?</label>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <app-form-messages
+        [control]="bookForm.get('rating')"
+        controlName="rating">
+      </app-form-messages>
+    <div class="ui left icon input">
+      
+      <div class="ui input">
+        <input type="number" 
+            placeholder="Enter Rating : 1 - 5" formControlName="rating">
+      </div>
+      
+    </div>
+  </div>
+  <!-- <label>Published Date</label> -->
+  <div class="field">
+    <div class="ui left icon input">
+      <label class="padding-right margin-text-top">Published Date</label> <input type="date"
+        useValueAsLocalDate
+        formControlName="published">
+      <app-form-messages
+        [control]="bookForm.get('published')"
+        controlName="published">
+      </app-form-messages>
+    </div>
+  </div>
 
-  <label>Images</label>
-  <button type="button" class="ui mini button"
-    (click)="addThumbnailControl()">
-    + Bild
-  </button>
+  <div class="field">
+    <div class="ui left icon input">
+      <label class="padding-right">Authors</label>
+      <button type="button" class="ui mini button"
+        (click)="addAuthorControl()">
+        + Autor
+      </button>
+    </div>
+  </div>
+      <div class="fields" formArrayName="authors">
+        <div class="sixteen wide field"
+          *ngFor="let c of authors.controls; index as i">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input placeholder="Autor"
+                [formControlName]="i">
+              </div>
+            </div>
+        </div>
+      </div>
+      <app-form-messages
+        [control]="bookForm.get('authors')"
+        controlName="authors">
+      </app-form-messages>
+    
 
+  <!-- <label>Description</label> -->
+  <div class="field">
+    <div class="ui left icon input">
+    <textarea formControlName="description" placeholder="Description..."></textarea>
+    </div>
+  </div>
+
+
+  <div class="field">
+    <div class="ui left icon input">
+      <label class="padding-right">Images</label>
+      <button type="button" class="ui mini button"
+        (click)="addThumbnailControl()">
+        + Bild
+      </button>
+    </div>
+  </div>
+ 
   <div formArrayName="thumbnails">
     <div class="fields"
       *ngFor="let c of thumbnails.controls; index as i" [formGroupName]="i">
-      <div class="nine wide field">
-        <input placeholder="URL"
-          formControlName="url">
+      <div class="nine wide field"> 
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="internet explorer icon"></i>
+            <input placeholder="URL"
+              formControlName="url">
+            </div>
+          </div>
       </div>
       <div class="seven wide field">
-        <input placeholder="Titel"
-          formControlName="title">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="heading icon"></i>
+              <input placeholder="Titel"
+                formControlName="title">
+            </div>
+          </div>
       </div>
     </div>
   </div>

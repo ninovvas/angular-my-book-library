@@ -3,10 +3,11 @@
     height: 550px;
     width: 550px;
     position: relative;
+    margin-top: 100px;
   }
   
     .err {
-      color: #95c2de;
+      color: black;
       font-family: 'Nunito Sans', sans-serif;
       font-size: 11rem;
       position:absolute;
@@ -19,11 +20,11 @@
     font-size: 8.5rem;
     left: 42%;
     top: 15%;
-    color: #95c2de;
+    color: green;
   }
   
    .err2 {
-      color: #95c2de;
+      color: black;
       font-family: 'Nunito Sans', sans-serif;
       font-size: 11rem;
       position:absolute;
@@ -43,7 +44,7 @@
   
   a {
     text-decoration: none;
-    color: #95c2de;
+    color: green;
   }
   
   a:hover {

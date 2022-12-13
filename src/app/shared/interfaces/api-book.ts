@@ -7,19 +7,21 @@ export interface GoogleBooksApiInterface {
   
   export interface BookSearch {
     id: string;
+    rating: number,
+    read: Boolean,
     volumeInfo: {
-      title: string;
-      subtitle: string;
-      authors: string[];
-      publisher: string;
-      publishDate: string;
-      description: string;
-      averageRating: number;
-      ratingsCount: number;
+      title: string,
+      subtitle: string,
+      authors: string[],
+      publisher: string,
+      publishDate: string,
+      description: string,
+      averageRating: number,
+      ratingsCount: number,
       infoLink: string,
       imageLinks: {
-        thumbnail: string;
-        smallThumbnail: string;
+        thumbnail: string,
+        smallThumbnail: string,
       };
     };
   }

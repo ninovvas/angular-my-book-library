@@ -1,21 +1,25 @@
 
-      .image {
-        margin-top: -100px;
-      }
-      .column {
-        max-width: 800px;
-    
-      }
+.image {
+  margin-top: -100px;
+}
+.column {
+  max-width: 800px;
 
-      form {
-        background: #fff;
-        border: 0.1rem solid rgba(0, 0, 0, 0.1);
-        width: 40rem;
-        height: auto;
-        padding: 2rem;
-        box-shadow: 0 0 10px #00000070;
-        border-radius: 0.5rem;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-      }
+}
+
+form {
+  background: #fff;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  width: 40rem;
+  height: auto;
+  padding: 2rem;
+  box-shadow: 0 0 10px #00000070;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.padding-title{
+  padding-top: 125px;
+}
 

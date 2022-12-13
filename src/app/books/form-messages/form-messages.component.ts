@@ -29,9 +29,13 @@ export class FormMessagesComponent implements OnInit {
       atLeastOneAuthor: 'At least one author must be specified.'
     },
     subtitle: {},
-    rating: {},
+    rating: {
+      min: "The rating number should be a positive number! Please enter a number between 1 and 5!",
+      max: "The max rating number is 5. Please enter a number between 1 and 5!"
+    },
     description: {},
-    thumbnails: {}
+    thumbnails: {},
+    read: {}
   };
   
 
