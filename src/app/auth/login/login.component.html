@@ -13,19 +13,19 @@
         <div class="field">
           <!-- Error Message Email-->
           <ng-container *ngIf="emailInput.touched">
-            <div *ngIf="emailInput.errors?.['required']">Email is required!</div>
-            <div *ngIf="emailInput.errors?.['email']"> Email is not valid!</div>
+            <div class="error_color" *ngIf="emailInput.errors?.['required']">Email is required!</div>
+            <div class="error_color" *ngIf="emailInput.errors?.['email']"> Email is not valid!</div>
           </ng-container>
           <div class="ui left icon input">
-            <i class="user icon"></i>
+            <i class="icon"></i>
             <input #emailInput="ngModel"  type="text" name="email"  ngModel required email placeholder="E-mail" [ngClass]="emailInput.errors ? 'ui input error': ''">
           </div>
         </div>
         <div class="field">
            <!-- Error Message Email-->
            <ng-container *ngIf="passwordInput.touched">
-            <div *ngIf="passwordInput.errors?.['required']">Password is required!</div>
-            <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least {{minlengthPassword}} characters!</div>
+            <div class="error_color"  *ngIf="passwordInput.errors?.['required']">Password is required!</div>
+            <div class="error_color"  *ngIf="passwordInput.errors?.['minlength']">Password must be at least {{minlengthPassword}} characters!</div>
             </ng-container>
           <div class="ui left icon input">
             <i class="lock icon"></i>

@@ -1,0 +1,60 @@
+<div class="ui middle aligned center aligned grid" style="margin: 0 auto;">
+    <div class="column">
+      <h2 class="ui  teal image header">
+        <div class="content">
+          <img src="./assets/open-book-100.png" class="ui centered image padding-title">
+            MY PROFILE
+        </div>
+      </h2>
+      <form [formGroup]="form"   class="ui large form" (ngSubmit)="saveProfile()">
+        <div class="ui stacked secondary  segment">
+            <div class="field">
+               <!-- Error Message username-->
+               <ng-container *ngIf="showEditMode">
+                    <ng-container *ngIf="form.get('username')?.touched || formSubmitted">
+                        <div class="error_color" *ngIf="form.get('username')?.errors?.['required']">Username is required!</div>
+                        <div class="error_color" *ngIf="form.get('username')?.errors?.['minlength']">Username should be longer than 5 chars</div>
+                    </ng-container>
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text"  formControlName="username" placeholder="Username">
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="!showEditMode">
+                    <p><b>Username:</b> {{user.username}}</p>
+                  </ng-container>
+                
+            </div>
+
+          <div class="field">
+            <ng-container *ngIf="showEditMode">
+                    <ng-container *ngIf="form.get('email')?.touched || formSubmitted">
+                        <div class="error_color" *ngIf="form.get('email')?.errors?.['email']"> Email is not valid!</div>
+                    </ng-container>
+                    <div class="ui left icon input">
+                    <i class="envelope icon"></i>
+                    <input type="text" formControlName="email" placeholder="E-mail address">
+                    </div>
+            </ng-container>
+            <ng-container *ngIf="!showEditMode">
+                <p><b>Email:</b> {{user.email}}</p>
+              </ng-container>
+
+          </div>
+
+          <ng-template #edit>
+            <button [disabled]="form.invalid" class="ui fluid large teal submit button">Save Profile</button> 
+          </ng-template>
+          <ng-template #nonEdit>
+            <button (click)="toggleEditMode()" class="ui fluid large teal submit button">Edit Profile</button> 
+          </ng-template>
+
+          <ng-container *ngTemplateOutlet="showEditMode ? edit : nonEdit"></ng-container>
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>
+

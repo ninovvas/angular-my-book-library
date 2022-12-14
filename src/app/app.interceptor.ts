@@ -12,7 +12,7 @@ const apiURL = environment.apiURL;
 export class AppInterceptor implements HttpInterceptor{
 
     constructor(
-        //@Inject(API_ERROR) private apiError: BehaviorSubject<Error | null>,
+        @Inject(API_ERROR) private apiError: BehaviorSubject<Error | null>,
         private router: Router,
         private authService: AuthService
     ){}
@@ -33,12 +33,12 @@ export class AppInterceptor implements HttpInterceptor{
             switchMap(([err, user]) => {
               if (err.status === 401) {
                 if (!user) {
-                  this.router.navigate(['/']); //auth/login
+                  this.router.navigate(['/auth/login']); 
                 } else {
                   this.router.navigate(['/book/catalog']);
                 }
               } else {
-                //this.apiError.next(err);
+                this.apiError.next(err);
                 this.router.navigate(['/']);
               }
               return throwError(() => err);

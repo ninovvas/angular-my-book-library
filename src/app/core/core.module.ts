@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { SearchModule } from '../search/search.module';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -13,7 +14,8 @@ import { SearchModule } from '../search/search.module';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,

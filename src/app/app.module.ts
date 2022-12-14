@@ -14,6 +14,8 @@ import { BooksModule } from './books/books.module';
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { SearchModule } from './search/search.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BehaviorSubject } from 'rxjs';
+import { API_ERROR } from './shared/constants';
 
 
 @NgModule({
@@ -22,19 +24,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthenticateComponent,
   ],
   imports: [
-    BooksModule,
+    
     AuthModule,
-    CoreModule,
-    HttpClientModule,
     BrowserModule,
+    BooksModule,
+    CoreModule,
+    AppRoutingModule,
+    HttpClientModule,
     SharedModule,
     DateValueAccessorModule,
     SearchModule,
-    AppRoutingModule,
-    AuthRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [appInterceptorProvider],
+  providers: [
+    appInterceptorProvider,
+    {
+      provide: API_ERROR,
+      useValue: new BehaviorSubject(null)
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

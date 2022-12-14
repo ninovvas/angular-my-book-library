@@ -8,10 +8,10 @@
         
         <!--Only for logged user-->
         <ng-template #loggedUserTemplate>
-        <a href="#">My Profile ({{user?.username}})'</a>
+        <a routerLink="/auth/profile">My Profile ({{user?.username}})</a>
         <a routerLink="/book/create">Add new Book</a>
         <a routerLink="/book/catalog">My Books</a>
-        <a routerLink="/auth/logout">Logout</a>
+        <!-- <a routerLink="/auth/logout">Logout</a> -->
         <app-search-content></app-search-content>
         
         </ng-template>
@@ -26,12 +26,11 @@
         <ng-container *ngTemplateOutlet="isLoggedIn ? loggedUserTemplate : guestTemplate"></ng-container>
         
         <a routerLink="/book/search/api">Search Online Books</a>
+        <i class="sign-out icon"></i><a *ngIf="isLoggedIn" routerLink="/auth/logout" style="float: right;">Logout</a>  
+       
     </nav>
-
-   
     
 </div>
-
 
 </header>
 

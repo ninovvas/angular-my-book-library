@@ -2,6 +2,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AuthActivate } from "../shared/gards/auth.activate";
 import { LoginComponent } from "./login/login.component";
 import { LogoutComponent } from "./logout/logout.component";
+import { ProfileComponent } from "./profile/profile.component";
 import { RegisterComponent } from "./register/register.component";
 
 const routes: Routes = [
@@ -37,6 +38,14 @@ const routes: Routes = [
                   }
 
             },
+            {
+                path: 'profile',
+                component: ProfileComponent,
+                data: {
+                  title: 'Profile',
+                  loginRequired: true
+                }
+              }
             
         ]
         

@@ -13,7 +13,7 @@ export class RegisterComponent {
 
   form = this.formBuilder.group({
   username: ['', [Validators.required, Validators.minLength(5)]],
-  email: [''],
+  email: ['', [Validators.email]],
   pass: this.formBuilder.group({
     password: ['',[Validators.required, Validators.minLength(4)]],
     rePassword: []
