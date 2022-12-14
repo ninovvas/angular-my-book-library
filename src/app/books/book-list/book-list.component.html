@@ -6,8 +6,14 @@
         *ngFor="let b of books"
         [book]="b"
         [routerLink]="b._id"></app-book-list-item >
-      
-      <p *ngIf="!books.length">No books have been entered yet!</p>
+
+      <div *ngIf="!books.length" class="ui info message">
+        <i class="close icon"></i>
+        <div class="header">
+          No books have been entered yet!
+        </div>
+      </div>
+
     </ng-container>
   
     <ng-template #loading>

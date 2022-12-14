@@ -11,5 +11,7 @@
     </span>
     <br>
     ISBN {{ book.isbn | isbn }}
+    
   </div>
+  <span *ngIf="book.read"><i class="thumbs up big icon"></i></span>
 </div>
