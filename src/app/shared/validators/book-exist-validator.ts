@@ -14,7 +14,7 @@ import { BookService } from "src/app/books/book.service";
       control: FormControl
     ): Observable<ValidationErrors | null> {
       return this.bookService.checkBookExist(control.value).pipe(
-        map(exists => (exists != undefined) ? null : {
+        map(exists => (exists.length === 0) ? null : {
             bookExists: { valid: false }
         }),
         catchError(() => of(null))

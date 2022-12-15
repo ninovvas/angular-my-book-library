@@ -15,6 +15,7 @@ export class CreateBookComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   createBook(book: Book) {
     this.bookService.create_book(book).subscribe(() => {
       this.router.navigate(['/book/catalog'])

@@ -11,7 +11,6 @@ import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { BooksModule } from './books/books.module';
-import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { SearchModule } from './search/search.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BehaviorSubject } from 'rxjs';
@@ -32,7 +31,6 @@ import { API_ERROR } from './shared/constants';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    DateValueAccessorModule,
     SearchModule,
     BrowserAnimationsModule,
   ],

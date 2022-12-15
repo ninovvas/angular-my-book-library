@@ -58,7 +58,10 @@ export class BookFormComponent implements OnInit, OnChanges {
     if (this.bookForm) { return; }
 
     this.bookForm = this.fb.group({
-      title: ['', Validators.required],
+      title: ['', 
+        [Validators.required],[this.bookExistsValidator]
+        //this.bookExistsValidator.validate
+      ],
       subtitle: [''],
       isbn: ['',
         //{ value: '', disabled: this.editing },
@@ -75,7 +78,7 @@ export class BookFormComponent implements OnInit, OnChanges {
       ]),
       rating: ['', [Validators.min(1), Validators.max(5)]],
       published: [],
-        //#Validators.max(5)
+
       read: []
     });
   }
@@ -101,7 +104,10 @@ export class BookFormComponent implements OnInit, OnChanges {
   }
 
   submitForm() {
+
     if (this.bookForm.invalid) { return; }
+    
+
     const formValue = this.bookForm.value;
     const authors = formValue.authors.filter(author  => author);
     const thumbnails = formValue.thumbnails.filter(thumbnail => thumbnail.url);
@@ -116,6 +122,8 @@ export class BookFormComponent implements OnInit, OnChanges {
     if (read == null) {
       read = false;
     }
+
+    //const isbn = this.editing ? this.book.isbn : formValue.isbn;
     
     //console.log('read', formValue.read);
 

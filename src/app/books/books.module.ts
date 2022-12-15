@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
 
 
 
@@ -29,7 +30,8 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     RouterModule,
     ReactiveFormsModule,
     BookRoutingModule,
-    SharedModule
+    SharedModule,
+    DateValueAccessorModule
   ]
 })
 export class BooksModule { }

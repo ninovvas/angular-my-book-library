@@ -10,17 +10,18 @@ import { Book } from 'src/app/shared/interfaces/book';
 export class FormMessagesComponent implements OnInit {
 
   @Input() control: AbstractControl | undefined;
-  @Input() controlName: keyof Book = 'title';
+  @Input() controlName: keyof Book = 'subtitle';
   //@Input() controlName: string = 'title';
  
   private allMessages = {
     title: {
-      required: 'The book title is required!'
+      required: 'The book title is required!',
+      bookExists: 'The Book exist already!'
     },
     isbn: {
       required: 'The ISBN is required!',
       isbnFormat: 'The ISBN number must contain 10 or 13 numbers!',
-      isbnExists: ' The ISBN number exist already!'
+      
     },
     published: {
       required: 'The published date is required!'
@@ -54,7 +55,6 @@ export class FormMessagesComponent implements OnInit {
   //const message = this.allMessages[this.controlName as keyof Book];
    
   if (!this.control || !messages || !this.control.errors || !this.control.dirty) { return []; }
-  console.log(this.control.errors);
   return Object.keys(this.control.errors).map(err => messages[err]);
   }
 

@@ -31,10 +31,9 @@ const apiURL = environment.apiURL;
     
     create_book(book: Book){
       console.log(book);
-      return this.httpClient.post<Book>('/api/books/', book).pipe(
+        return this.httpClient.post<Book>('/api/books/', book).pipe(
           catchError(this.errorHandler)
-      )
-    }
+      )}
 
 
     getDetailsBook(id: string| null): Observable<Book>{
@@ -55,8 +54,8 @@ const apiURL = environment.apiURL;
 
     }
 
-    checkBookExist(bookId: string){
-      return this.httpClient.get<Book>('/api/books/catalog/' + bookId).pipe(
+    checkBookExist(titleBook: string){
+      return this.httpClient.get<Book>('/api/books/check/' + titleBook).pipe(
         catchError(this.errorHandler)
       )
     }

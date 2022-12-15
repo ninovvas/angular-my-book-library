@@ -24,7 +24,7 @@ export class LoginComponent {
   loginHandler(form: NgForm): void{
     if (form.invalid) { return;}
     const {email, password} = form.value;
-    this.authService.login(email, password)
+    this.authService.login(email!, password!)
     .subscribe( user => {
       this.router.navigate(['/book/catalog'])
     });

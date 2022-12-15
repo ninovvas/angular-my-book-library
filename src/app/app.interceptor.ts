@@ -35,7 +35,7 @@ export class AppInterceptor implements HttpInterceptor{
                 if (!user) {
                   this.router.navigate(['/auth/login']); 
                 } else {
-                  this.router.navigate(['/book/catalog']);
+                  this.router.navigate(['/']);
                 }
               } else {
                 this.apiError.next(err);
