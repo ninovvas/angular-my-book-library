@@ -54,8 +54,8 @@ const apiURL = environment.apiURL;
 
     }
 
-    checkBookExist(titleBook: string){
-      return this.httpClient.get<Book>('/api/books/check/' + titleBook).pipe(
+    checkBookExist(isbn: string){
+      return this.httpClient.get<Book>('/api/books/check/' + isbn).pipe(
         catchError(this.errorHandler)
       )
     }

@@ -16,11 +16,12 @@ export class FormMessagesComponent implements OnInit {
   private allMessages = {
     title: {
       required: 'The book title is required!',
-      bookExists: 'The Book exist already!'
+      
     },
     isbn: {
       required: 'The ISBN is required!',
       isbnFormat: 'The ISBN number must contain 10 or 13 numbers!',
+      bookExists: 'The Book exist already!'
       
     },
     published: {

@@ -59,7 +59,7 @@ export class BookFormComponent implements OnInit, OnChanges {
 
     this.bookForm = this.fb.group({
       title: ['', 
-        [Validators.required],[this.bookExistsValidator]
+        [Validators.required]
         //this.bookExistsValidator.validate
       ],
       subtitle: [''],
@@ -69,6 +69,7 @@ export class BookFormComponent implements OnInit, OnChanges {
           Validators.required,
           BookValidators.isbnFormat
         ],
+        [this.bookExistsValidator]
         //this.editing ? null : [this.bookExistsValidator]
       ],
       description: [''],
