@@ -21,7 +21,7 @@ export class FormMessagesComponent implements OnInit {
     isbn: {
       required: 'The ISBN is required!',
       isbnFormat: 'The ISBN number must contain 10 or 13 numbers!',
-      bookExists: 'The Book exist already!'
+      bookExists: 'The Book exist already in your Library!'
       
     },
     published: {

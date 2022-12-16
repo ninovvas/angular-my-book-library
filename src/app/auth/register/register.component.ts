@@ -14,6 +14,9 @@ export class RegisterComponent {
   form = this.formBuilder.group({
   username: ['', [Validators.required, Validators.minLength(5)]],
   email: ['', [Validators.email]],
+  first_name: ['',  [Validators.required]],
+  last_name: ['',  [Validators.required]],
+  address: [],
   pass: this.formBuilder.group({
     password: ['',[Validators.required, Validators.minLength(4)]],
     rePassword: []
@@ -28,10 +31,10 @@ export class RegisterComponent {
   
   registerHandler() {
     if (this.form.invalid) { return; }
-    const {username, email, pass: {password, rePassword} = {}} = this.form.value;
-    this.authService.register(username!, email!, password!, rePassword!)
+    const {username, email, first_name, last_name, address, pass: {password, rePassword} = {}} = this.form.value;
+    this.authService.register(username!, email!, first_name!, last_name!, address!, password!, rePassword!)
     .subscribe(user => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/book/catalog']);
     });
   }
 }

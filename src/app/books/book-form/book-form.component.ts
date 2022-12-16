@@ -64,13 +64,13 @@ export class BookFormComponent implements OnInit, OnChanges {
       ],
       subtitle: [''],
       isbn: ['',
-        //{ value: '', disabled: this.editing },
+        { value: '', disabled: this.editing },
         [
           Validators.required,
           BookValidators.isbnFormat
         ],
-        [this.bookExistsValidator]
-        //this.editing ? null : [this.bookExistsValidator]
+        //[this.bookExistsValidator]
+        this.editing ? null : [this.bookExistsValidator]
       ],
       description: [''],
       authors: this.buildAuthorsArray(['']),
@@ -114,7 +114,8 @@ export class BookFormComponent implements OnInit, OnChanges {
     const thumbnails = formValue.thumbnails.filter(thumbnail => thumbnail.url);
 
     const _id = this.editing ? this.book?._id : formValue._id;
-    const isbn = formValue.isbn;
+    //const isbn = formValue.isbn;
+    const isbn = this.editing ? this.book?.isbn : formValue.isbn;
     let rating = formValue.rating;
     if (rating == undefined) {
       rating = 1;

@@ -12,8 +12,8 @@
                <!-- Error Message username-->
                
                <ng-container *ngIf="form.get('username')?.touched">
-                <div *ngIf="form.get('username')?.errors?.['required']">Username is required!</div>
-                <div *ngIf="form.get('username')?.errors?.['minlength']">Username should be longer than 5 chars</div>
+                <div class="error_color" *ngIf="form.get('username')?.errors?.['required']">Username is required!</div>
+                <div class="error_color" *ngIf="form.get('username')?.errors?.['minlength']">Username should be longer than 5 chars</div>
               </ng-container>
               <div class="ui left icon input">
                   <i class="user icon"></i>
@@ -21,19 +21,62 @@
               </div>
               
             </div>
+            <!-- Email-->
           <div class="field">
+            <ng-container *ngIf="form.get('email')?.touched">
+              <div class="error_color" *ngIf="form.get('email')?.errors?.['email']"> Email is not valid!</div>
+            </ng-container>
             <div class="ui left icon input">
               <i class="envelope icon"></i>
               <input type="text" formControlName="email" placeholder="E-mail address">
             </div>
           </div>
+          
+          <!--First Name-->
+          <div class="field">
+            <!-- Error Message username-->
+            
+            <ng-container *ngIf="form.get('first_name')?.touched">
+             <div class="error_color" *ngIf="form.get('first_name')?.errors?.['required']">First Name is required!</div>
+           </ng-container>
+           <div class="ui left icon input">
+               <i class="user icon"></i>
+               <input type="text"  formControlName="first_name" placeholder="First Name">
+           </div>
+           
+         </div>
+
+          <!--Last Name-->
+          <div class="field">
+            <!-- Error Message username-->
+            
+            <ng-container *ngIf="form.get('last_name')?.touched">
+             <div class="error_color" *ngIf="form.get('last_name')?.errors?.['required']">Last Name is required!</div>
+           </ng-container>
+           <div class="ui left icon input">
+               <i class="user icon"></i>
+               <input type="text"  formControlName="last_name" placeholder="Last Name">
+           </div>
+           
+         </div>
+
+          <!--Address-->
+          <div class="field">
+            <!-- Error Message username-->
+           <div class="ui left icon input">
+               <i class="address card icon"></i>
+               <input type="text"  formControlName="address" placeholder="Address">
+           </div>
+           
+         </div>
+
           <!-- password -->
           <ng-container formGroupName="pass">
             <div class="field">
 
               <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
-                <div *ngIf="form.get('pass')?.get('password')?.errors?.['required']">Password is required!</div>
-                <div *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']">Password must be at least 5 characters!</div>
+                <div class="error_color" *ngIf="form.get('pass')?.get('password')?.errors?.['required']">Password is required!</div>
+                <div class="error_color" *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']">Password must be at least 5 characters!</div>
               </ng-container>
 
               <div class="ui left icon input">
@@ -42,7 +85,7 @@
               </div>
             </div>
             <div class="field">
-              <div *ngIf="form.get('pass')?.errors?.['passwordValidator'] && form.get('pass')?.get('rePassword')?.touched">Repeat Password does not match password!</div>
+              <div class="error_color" *ngIf="form.get('pass')?.errors?.['passwordValidator'] && form.get('pass')?.get('rePassword')?.touched">Repeat Password does not match password!</div>
               <div class="ui left icon input">
                 <i class="lock icon"></i>
                 <input type="password"  formControlName="rePassword" placeholder="Repeat Password">

@@ -28,8 +28,8 @@ export class AuthService implements OnDestroy{
     });
    }
 
-  register(username: string, email: string, password: string, rePassword: string){
-    return this.http.post<IUser>('/api/register', {username, email, password, rePassword})
+  register(username: string, email: string, first_name: string, last_name: string, address: string,  password: string, rePassword: string){
+    return this.http.post<IUser>('/api/register', {username, email, first_name, last_name, address, password, rePassword})
     .pipe(tap(user => this.user$$.next(user)));
   }
 
@@ -55,8 +55,8 @@ export class AuthService implements OnDestroy{
       })
     )
   }
-  saveProfile(username: string, email: string){
-    return this.http.put<IUser>('/api/users/profile', { username, email})
+  saveProfile(username: string, email: string, first_name: string, last_name: string, address: string){
+    return this.http.put<IUser>('/api/users/profile', { username, email, first_name, last_name, address})
     .pipe(tap(user => this.user$$.next(user)));
   }
 

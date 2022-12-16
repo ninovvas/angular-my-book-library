@@ -15,10 +15,13 @@ export class ProfileComponent {
  
 
   get user() {
-    const { username, email} = this.authService.user!;
+    const { username, email, first_name, last_name, address} = this.authService.user!;
     return {
       username,
       email,
+      first_name,
+      last_name,
+      address
     };
   }
 
@@ -33,6 +36,9 @@ export class ProfileComponent {
     this.form = this.formBuilder.group({
       username: [formValue.username, [Validators.required, Validators.minLength(5)]],
       email: [formValue.email, [ Validators.email]],
+      first_name: [formValue.first_name, [Validators.required]],
+      last_name:  [formValue.last_name, [Validators.required]],
+      address: [formValue.address]
     })
     
   }
@@ -48,8 +54,8 @@ export class ProfileComponent {
   saveProfile(): void {
     this.formSubmitted = true;
     if (this.form.invalid) { return; }
-    const { username, email, ext, tel } = this.form.value;
-    this.authService.saveProfile(username, email).subscribe(() => {
+    const { username, email, first_name, last_name, address} = this.form.value;
+    this.authService.saveProfile(username, email, first_name, last_name, address).subscribe(() => {
       this.toggleEditMode();
     });
   }

@@ -43,6 +43,57 @@
 
           </div>
 
+          <!-- First Name-->
+          <div class="field">
+            <!-- Error Message First Name-->
+            <ng-container *ngIf="showEditMode">
+                 <ng-container *ngIf="form.get('first_name')?.touched || formSubmitted">
+                     <div class="error_color" *ngIf="form.get('first_name')?.errors?.['required']">First name is required!</div>
+                 </ng-container>
+                 <div class="ui left icon input">
+                     <i class="user icon"></i>
+                     <input type="text"  formControlName="first_name" placeholder="First Name">
+                 </div>
+             </ng-container>
+
+             <ng-container *ngIf="!showEditMode">
+                 <p><b>First Name:</b> {{user.first_name}}</p>
+               </ng-container>
+         </div>
+
+        <!-- Last Name-->
+        <div class="field">
+          <!-- Error Message Last Name-->
+          <ng-container *ngIf="showEditMode">
+               <ng-container *ngIf="form.get('last_name')?.touched || formSubmitted">
+                   <div class="error_color" *ngIf="form.get('last_name')?.errors?.['required']">Last name is required!</div>
+               </ng-container>
+               <div class="ui left icon input">
+                   <i class="user icon"></i>
+                   <input type="text"  formControlName="last_name" placeholder="Last Name">
+               </div>
+           </ng-container>
+
+           <ng-container *ngIf="!showEditMode">
+               <p><b>Last Name:</b> {{user.last_name}}</p>
+             </ng-container>
+       </div>
+
+        <!-- Address-->
+        <div class="field">
+          <!-- Error Message Address-->
+          <ng-container *ngIf="showEditMode">
+               <div class="ui left icon input">
+                   <i class="address card icon"></i>
+                   <input type="text"  formControlName="address" placeholder="Address">
+               </div>
+           </ng-container>
+
+           <ng-container *ngIf="!showEditMode">
+               <p><b>Address:</b> {{user.address}}</p>
+             </ng-container>
+       </div>
+
           <ng-template #edit>
             <button [disabled]="form.invalid" class="ui fluid large teal submit button">Save Profile</button> 
           </ng-template>

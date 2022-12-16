@@ -57,6 +57,8 @@ export class SearchBookItemComponent implements OnInit {
 
 
     }
+
+
     this.bookService.create_book(this.bookToAdd).subscribe(() => {
       
       this.router.navigate(['/book/catalog'])
