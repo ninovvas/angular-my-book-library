@@ -1,6 +1,23 @@
 
 # MyBookLibrary
 
+The target of the project is to create an application using Angular for the ***client-side***
+For the backend has been created a remote service (https://github.com/ninovvas/backend-expressjs-my-book-library) with ExpressJS(https://expressjs.com/)
+
+The application contains following functionality:
+- Home page (public area)
+- Registration (Create a new user)
+- LogIn
+- Logout
+- Create new book to the library
+- Edit the book
+- Delete the book
+- Search a book in internet using the Google API (https://www.googleapis.com/books/v1/volumes) and add it to the library
+- Search for the books in the library for the current user
+- Set a rating for each added book
+- Set the status if the book is already read
+- Error Handling and data validation for all forms
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
 
 ## Development server
