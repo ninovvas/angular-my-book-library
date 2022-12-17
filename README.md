@@ -2,7 +2,7 @@
 # MyBookLibrary
 
 The target of the project is to create an application using Angular for the ***client-side***
-For the backend has been created a remote service (https://github.com/ninovvas/backend-expressjs-my-book-library) with ExpressJS(https://expressjs.com/)
+For the backend has been created a remote service (https://github.com/ninovvas/backend-expressjs-my-book-library) with [ExpressJS](https://expressjs.com/)
 
 The application contains following functionality:
 - Home page (public area)
