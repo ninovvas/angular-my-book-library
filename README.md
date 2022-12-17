@@ -17,7 +17,13 @@ The application contains following functionality:
 - Set a rating for each added book
 - Set the status if the book is already read
 - Error Handling and data validation for all forms
-- Documentation has been created with https://compodoc.app/
+- Documentation has been created with [Compodoc](https://compodoc.app/)
+
+## Used UI Libraries
+
+For the fronted has been used the UI libraries [Semantic UI](https://semantic-ui.com/) and [Angular Material](https://material.angular.io/)
+
+## Angular Version
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
 
