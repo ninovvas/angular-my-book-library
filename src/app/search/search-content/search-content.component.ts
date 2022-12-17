@@ -10,13 +10,13 @@ import { Book } from 'src/app/shared/interfaces/book';
   templateUrl: './search-content.component.html',
   styleUrls: ['./search-content.component.scss']
 })
-export class SearchContentComponent {
+export class SearchContentComponent{
 
   keySearch$ = new Subject<string>();
   isLoading = false;
   foundBooks: Book[] = [];
   isVisible = true;
-  @ViewChild('name') input?; 
+  //@ViewChild('name') input?; 
 
   constructor(private bookService: BookService, private router: Router) {
 
@@ -33,18 +33,18 @@ export class SearchContentComponent {
       distinctUntilChanged(),
       tap(() => {this.isLoading = true;}),
       switchMap((searchTerm) => this.bookService.getAllBookSearch(searchTerm)),
-      tap(() => {this.isLoading = false; this.isVisible = true;})
+      tap(() => {this.isLoading = false; this.isVisible = true;}),
     )
     .subscribe(books => this.foundBooks = books);
 
   }
 
-  getValue(event: Event) {
-    if((event.target as HTMLInputElement).value){
-      return this.keySearch$.next(((event.target as HTMLInputElement).value));
-    }
+  // getValue(event: Event) {
+  //   if((event.target as HTMLInputElement).value){
+  //     return this.keySearch$.next(((event.target as HTMLInputElement).value));
+  //   }
    
-  }
+  // }
 
   onSearchType(event: Event) {
     this.keySearch$.next(((event.target as HTMLInputElement).value));
@@ -53,6 +53,7 @@ export class SearchContentComponent {
   manageClick(bookId: string){
     this.isVisible = false;
     this.ngOnInit();
+    //Bug in angular
     this.router.navigate(['book', 'catalog']).then(() =>
     this.router.navigate(['book', 'catalog', bookId])
     );

@@ -33,13 +33,13 @@ export class AppInterceptor implements HttpInterceptor{
             switchMap(([err, user]) => {
               if (err.status === 401) {
                 if (!user) {
-                  this.router.navigate(['/auth/login']); 
+                  this.router.navigate(['/']); ///auth/login'
                 } else {
                   this.router.navigate(['/']);
                 }
               } else {
                 this.apiError.next(err);
-                this.router.navigate(['/']);
+                this.router.navigate(['/error']);
               }
               return throwError(() => err);
             })

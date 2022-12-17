@@ -18,6 +18,7 @@ The application contains following functionality:
 - Search for the books in the library for the current user
 - Set a rating for each added book
 - Set the status if the book is already read
+- Get the number of the read books
 - Error Handling and data validation for all forms
 - Documentation has been created with [Compodoc](https://compodoc.app/)
 

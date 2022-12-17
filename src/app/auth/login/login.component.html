@@ -17,8 +17,8 @@
             <div class="error_color" *ngIf="emailInput.errors?.['email']"> Email is not valid!</div>
           </ng-container>
           <div class="ui left icon input">
-            <i class="icon"></i>
-            <input #emailInput="ngModel"  type="text" name="email"  ngModel required email placeholder="E-mail" [ngClass]="emailInput.errors ? 'ui input error': ''">
+            <i class="envelope icon"></i>
+            <input #emailInput="ngModel"  type="text" name="email"  ngModel required email placeholder="E-mail" >
           </div>
         </div>
         <div class="field">

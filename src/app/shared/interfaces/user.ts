@@ -6,7 +6,7 @@ export interface IUser {
     password: string,
     first_name: string,
     last_name: string,
-    address: string,
+    address?: string,
     created_at: string,
     updatedAt: string,
     __v: number,

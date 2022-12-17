@@ -63,7 +63,7 @@ export class BookFormComponent implements OnInit, OnChanges {
         //this.bookExistsValidator.validate
       ],
       subtitle: [''],
-      isbn: ['',
+      isbn: [
         { value: '', disabled: this.editing },
         [
           Validators.required,
@@ -110,7 +110,7 @@ export class BookFormComponent implements OnInit, OnChanges {
     
 
     const formValue = this.bookForm.value;
-    const authors = formValue.authors.filter(author  => author);
+    const authors = formValue.authors.filter(author => author);
     const thumbnails = formValue.thumbnails.filter(thumbnail => thumbnail.url);
 
     const _id = this.editing ? this.book?._id : formValue._id;

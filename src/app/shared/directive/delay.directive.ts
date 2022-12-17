@@ -5,7 +5,7 @@ import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angula
 })
 export class DelayDirective implements OnInit {
 
-  @Input() bookDelay?;
+  @Input() bookDelay: any;
 
   constructor( private templateRef: TemplateRef<any>, private viewContainerRef: ViewContainerRef) { }
 

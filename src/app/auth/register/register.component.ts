@@ -18,7 +18,7 @@ export class RegisterComponent {
   last_name: ['',  [Validators.required]],
   address: [],
   pass: this.formBuilder.group({
-    password: ['',[Validators.required, Validators.minLength(4)]],
+    password: ['',[Validators.required, Validators.minLength(5)]],
     rePassword: []
   },
   {
