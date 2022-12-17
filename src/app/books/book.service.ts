@@ -27,6 +27,12 @@ const apiURL = environment.apiURL;
       );
     }
 
+    getReadBooks() {
+      return this.httpClient.get<Book[]>(`/api/books/read`).pipe(
+        catchError(this.errorHandler)
+      );
+    }
+
   
     
     create_book(book: Book){

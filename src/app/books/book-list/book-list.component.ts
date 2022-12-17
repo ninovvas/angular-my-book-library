@@ -12,6 +12,8 @@ export class BookListComponent implements OnInit {
 
   //books$: Observable<Book[]>;
   books: Book[] | null = null;
+  readBooks: Book[] | null = null;
+  numberReadBooks: Number = 0;
 
   constructor(private bookService: BookService) { }
 
@@ -25,6 +27,19 @@ export class BookListComponent implements OnInit {
         //this.books = value;
       }
     });
-  }
 
+    this.bookService.getReadBooks().subscribe({
+      next: (value) => {
+        this.readBooks = value;
+    },
+    error: (err) => {
+      console.log(err);
+      //this.readBooks = value;
+    }
+  });
+  
+
+  this.numberReadBooks = (this.readBooks?.length || 1 )/(this.books?.length || 1);
+
+}
 }

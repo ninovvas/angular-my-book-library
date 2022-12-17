@@ -1,6 +1,6 @@
 <div class="ui middle aligned selection divided list fixed-width margin-content">
     <div class="ui teal huge header margin-title">MY BOOK LIST</div>
-   
+   <div class="ui teal header margin-title">Read Books: {{readBooks?.length}} from {{books?.length}}</div>
     <ng-container *ngIf="books; else loading">
       <app-book-list-item class="item"
         *ngFor="let b of books"

@@ -11,6 +11,7 @@ export class FormMessagesComponent implements OnInit {
 
   @Input() control: AbstractControl | undefined;
   @Input() controlName: keyof Book = 'subtitle';
+  //@Input() controlName!:  String;
   //@Input() controlName: string = 'title';
  
   private allMessages = {
