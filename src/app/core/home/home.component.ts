@@ -1,5 +1,7 @@
 import { trigger, transition, query, style, stagger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +30,15 @@ export class HomeComponent implements OnInit {
     "./assets/images/book-6.png",
   ];
 
-  constructor() { }
+  get isLoggedIn() {
+    return this.authService.isLoggedIn;
+  }
+
+  get user(){
+    return this.authService.user
+  }
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }

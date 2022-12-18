@@ -39,7 +39,7 @@ export class AppInterceptor implements HttpInterceptor{
                 }
               } else {
                 this.apiError.next(err);
-                this.router.navigate(['/error']);
+                this.router.navigate(['/not-found']);
               }
               return throwError(() => err);
             })

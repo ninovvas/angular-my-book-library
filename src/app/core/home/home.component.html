@@ -4,8 +4,8 @@
 
         <div class="content">
             <h3>My Book Library</h3>
-            <p>My Book Library gives you the possibility to manage you book. To use the full functionality of the application please 
-                <a routerLink="/auth/register">Register</a> or <a routerLink="/auth/login">Log In</a>
+            <p>My Book Library gives you the possibility to manage you books. <span *ngIf="!isLoggedIn">To use the full functionality of the application please </span>
+                <a *ngIf="!isLoggedIn" routerLink="/auth/register">Register</a> <span *ngIf="!isLoggedIn"> or </span> <a *ngIf="!isLoggedIn" routerLink="/auth/login">Log In</a>
             </p>
             <!-- <a href="/search" class="btn">Search</a> -->
            
